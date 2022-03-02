@@ -6,16 +6,16 @@ baliky = {
     "B947X": False,
 }
 
-# package = input("Zadej kód balíku: ")
-# if package in baliky:
-#   if baliky[package] :           #if baliky[package] == True
-#     print(f"Balík s kódem {package} byl předán kurýrovi.")
-#   else:
-#     print(f"Balík s kódem {package} nebyl dosud předán kurýrovi.")
-# else:
-#   print(f"Balík s kódem {package} není evidován v našem systému.")
+package = input("Zadej kód balíku: ")
+if package in baliky:
+  if baliky[package] :           #if baliky[package] == True
+    print(f"Balík s kódem {package} byl předán kurýrovi.")
+  else:
+    print(f"Balík s kódem {package} nebyl dosud předán kurýrovi.")
+else:
+  print(f"Balík s kódem {package} není evidován v našem systému.")
 
-# Navrh na doplneni
+# Dobrovolne rozsireni primitivniho systemu
 
 num_package = input ("Zadej kód balíku pro zadaní změny: ")
 if num_package in baliky:
