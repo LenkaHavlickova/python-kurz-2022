@@ -489,31 +489,36 @@ staty = [
     {'name': 'Zimbabwe', 'capital': 'Harare', 'region': 'Africa', 'subregion': 'Eastern Africa', 'population': 14240168,
      'area': 390757.0}]
 
-states_in_region = []
-chosen_region = input("Zadej název regionu: ")
-for state in staty:
-  if state['region'] == chosen_region:
-    states_in_region.append(state['name'])
+def region_state (chosen_region):
+  states_in_region = []
+  for state in staty:
+    if state['region'] == chosen_region:
+      states_in_region.append(state['name'])
+  if states_in_region == []:
+    print("Neznámý region")
+  else:
+    print(f"V regionu {chosen_region} je {len(states_in_region)} zemí")
+    print(states_in_region)  
 
-if states_in_region == []:
-  print("Neznámý region")
-else:
-  print(f"V regionu {chosen_region} je {len(states_in_region)} zemí")
-  print(states_in_region)  
+chosen_region = input("Zadej název regionu: ")
+region_state(chosen_region)
 
 # bonus
-chosen_region_subregion = input ("Zadej název regionu pro zjištění obyvatel v subregionech: ")
-subregions = {}
-for state in staty:
-  if state['region'] == chosen_region_subregion:
-    subregion = state['subregion']
-    population = state['population']
-    if subregion in subregions:
-      subregions[subregion] += population
-    else:
-      subregions[subregion] = population
+def region_subregions(chosen_region_subregion):
+  subregions = {}
+  for state in staty:
+    if state['region'] == chosen_region_subregion:
+      subregion = state['subregion']
+      population = state['population']
+      if subregion in subregions:
+        subregions[subregion] += population
+      else:
+        subregions[subregion] = population
 
-if subregions == {}:
-  print("Neznámý region")
-else:
-  print(subregions)
+  if subregions == {}:
+    print("Neznámý region")
+  else:
+    print(subregions)
+
+chosen_region_subregion = input ("Zadej název regionu pro zjištění obyvatel v subregionech: ")
+region_subregions(chosen_region_subregion)
