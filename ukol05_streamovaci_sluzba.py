@@ -52,38 +52,22 @@ class User:
       time = str(hours) + " hod " + str(minutes) + " min"
     else:
       time = str(self.watching_time) + " min"
-    return f"Uživatel: {self.user_name}\nCelkový čas sledování: {time} \nZhlédnuté tituly: {self.seen_items}\n================" 
+    return f"Uživatel(ka): {self.user_name}\nCelkový čas sledování: {time} \nZhlédnuté tituly: {self.seen_items}\n================" 
 
-  def add_seen_items(self, time, title):
-    seen_items = ""
-    seen_items += title
-    self.seen_items.append(seen_items)
-    self.watching_time += time
-    return self.watching_time   
+  def add_seen_item(self, item: Item):
+    self.seen_items.append(item.title)
+    self.watching_time += item.get_total_time()
+    return f"Uživatel(ka): {self.user_name} viděl(a): {item.title} Čas sledování: {item.get_total_time()} min\n================\n" + self.__str__()  
     
-def seen_item (user: User, item: Item):
-  time = item.get_total_time()
-  user.add_seen_items(time, item.title)
-  
 
 troja = Movie("Troja", "historický", 157)
-print(troja)
 friends = Serial("Friends", "sitcom", 240, 22)
-print(friends)
 titanic = Movie("Titanic", "drama, romantický", 194)
-print(titanic)
 chandler = User("Chandler")
 helena = User("Helena")
-print(chandler)
-print(helena)
 
-
-seen_item(helena, titanic)
-print(helena)
-seen_item(helena, friends)
-print(helena)
-seen_item(helena, troja)
-print(helena)
-seen_item(chandler, troja)
-print(chandler)
+print(helena.add_seen_item(titanic))
+print(chandler.add_seen_item(friends))
+print(helena.add_seen_item(troja))
+print(chandler.add_seen_item(troja))
 
