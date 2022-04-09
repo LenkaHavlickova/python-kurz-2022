@@ -42,21 +42,24 @@ class User:
 
   def __init__(self, user_name):
     self.user_name = user_name
-    self.watching_time = 0
     self.seen_items = []
 
   def __str__(self):
-    if self.watching_time > 60:
-      hours = self.watching_time //60
-      minutes = self.watching_time % 60
+    watching_time = 0
+    seen_titles = []
+    for item in self.seen_items:
+      watching_time += item.get_total_time()
+      seen_titles.append(item.title)
+    if watching_time > 60:
+      hours = watching_time //60
+      minutes = watching_time % 60
       time = str(hours) + " hod " + str(minutes) + " min"
     else:
-      time = str(self.watching_time) + " min"
-    return f"Uživatel(ka): {self.user_name}\nCelkový čas sledování: {time} \nZhlédnuté tituly: {self.seen_items}\n================" 
+      time = str(watching_time) + " min"
+    return f"Uživatel(ka): {self.user_name}\nCelkový čas sledování: {time} \nZhlédnuté tituly: {seen_titles}\n================" 
 
-  def add_seen_item(self, item: Item):
-    self.seen_items.append(item.title)
-    self.watching_time += item.get_total_time()
+  def add_seen_item(self, item):
+    self.seen_items.append(item)
     return f"Uživatel(ka): {self.user_name} viděl(a): {item.title} Čas sledování: {item.get_total_time()} min\n================\n" + self.__str__()  
     
 
