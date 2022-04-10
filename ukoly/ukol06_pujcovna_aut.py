@@ -1,8 +1,7 @@
-file = input("Zadej název zdrojového textového souboru: ")
-file_path = "ukoly/" + file
-if file_path[-4] != '.':
-  file_path += '.txt'
-with open (file_path, encoding='utf-8') as input:
+file = input("Zadej název textového souboru (včetně cesty, není-li uložen ve stejném adresáři): ")
+if file[-4] != '.':
+  file += '.txt'
+with open (file, encoding='utf-8') as input:
   cars_overview = input.readlines()
 
 cars_overview = [car.split() for car in cars_overview]
