@@ -1,0 +1,37 @@
+https://regex101.com/
+https://docs.python.org/3/library/re.html
+
+registracni znacka:
+\d[A-Z][A-Z0-9] \d{4}
+
+3P 4564
+1A 25364
+4A6 8244
+6B2 6635
+2AD 3824
+AC8 5484
+924 1541
+8A2 25C2
+7C1 5025
+
+telefonni cislo:
+^(\+420)* *\d{3} *\d{3} *\d{3}$
++420789788787
+773 789 543
+773 745 65A
+7887897781
++420 789 788 787
+
+
+ministerstva:
+Ministerstvo [\w\s]+
+
+Ministerstvo pro místní rozvoj, Celní správa České republiky, Ministerstvo životního prostředí, Ministerstvo práce a sociálních věcí, Český statistický úřad, Nejvyšší kontrolní úřad
+
+emailova adresa:
+\w+@\w+\.\w+
+
+python@czechitas.cz
+czechitas.cz
+info@czechitas.cz
+@czechitas.cz

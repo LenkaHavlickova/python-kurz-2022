@@ -1,10 +1,10 @@
 class Auto:
   
-  def __init__(self, spz, typ_vozu, pocet_najetych_km, volne = True):
+  def __init__(self, spz, typ_vozu, pocet_najetych_km):
     self.spz = spz
     self.typ_vozu = typ_vozu
     self.pocet_najetych_km = pocet_najetych_km
-    self.volne = volne
+    self.volne = True
   
   def __str__(self):
     return f"Registrační značka: {self.spz} \nTyp vozidla: {self.typ_vozu} \nPočet najetých kilometrů: {self.pocet_najetych_km} \nVolné: {'Ano' if self.volne else 'Ne'} \n ================== " 
