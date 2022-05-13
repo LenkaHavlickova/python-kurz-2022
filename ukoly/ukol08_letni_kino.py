@@ -1,3 +1,4 @@
+from dataclasses import replace
 from datetime import datetime
 
 first_season_beginning = datetime(2021, 7, 1)
@@ -9,7 +10,12 @@ second_season_price = 180
 
 print("Letní kino - Prodej vstupenek\n===================")
 require_date = input("Zadejte požadované datum ve formátu \"den. měsíc. rok\": ")
-require_date_f = datetime.strptime(require_date, "%d. %m. %Y")
+require_date = require_date.replace(" ", "")
+try:
+  require_date_f = datetime.strptime(require_date, "%d.%m.%Y")
+except ValueError:
+  print("Zadané datum není v požadovaném formátu \"DD. MM. YYYY\"")
+  exit()
 
 if (require_date_f < first_season_beginning ) or (require_date_f > second_season_end):
   print("Tento den je letní kino zavřené.")
