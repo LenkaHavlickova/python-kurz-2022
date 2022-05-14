@@ -1,3 +1,4 @@
+from select import select
 import pandas
 path = input("Zadej název adresáře, kde je uložen soubor s daty: (Pokud je ve stejné složce, dej pouze ENTER) ")
 if path:
@@ -50,5 +51,6 @@ print(us_13_select)
 
 
 # Pro data z předchozího dotazu napiš dotaz na řádky ve městech (sloupec City) Washington a Philadelphia.
-wash_phil_select = us_13_select[us_13_select["City"].isin(["Washington", "Philadelphia"])]
-print(wash_phil_select)
+print(us_13_select[us_13_select["City"].isin(["Washington", "Philadelphia"])].drop_duplicates(subset=["City"]))
+
+
